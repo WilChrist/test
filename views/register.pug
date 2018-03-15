@@ -4,8 +4,28 @@ block content
   h1 Register
   form(method='POST', action='/users/register')
     #form-group
-      label Name:
-      input.form-control(name='name', type='text')
+      label Type of User:
+      Select.form-control(name='usertype')
+        option(value="CITIZEN") Citizen
+        option(value="SERVICEPROVIDER") Service Provider
+        option(value="ADMINISTRATOR") Administrator
+    #form-group
+      label First Name:
+      input.form-control(name='first_name', type='text')
+    #form-group
+      label Last Name:
+      input.form-control(name='last_name', type='text')
+    #form-group
+      label Birth Date:
+      input.form-control(name='birth_date', type='date')
+    #form-group
+      label Gender:
+      input.form-control(name='gender', type='radio' value='MAN')
+      input.form-control(name='gender', type='radio' value='WOMAN')
+      input.form-control(name='gender', type='radio' value='OTHER') 
+    #form-group
+      label Location:
+      input.form-control(name='location', type='text')
     #form-group
       label Email:
       input.form-control(name='email', type='text')
