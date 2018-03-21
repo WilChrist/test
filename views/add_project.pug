@@ -1,0 +1,13 @@
+extends layout
+
+block content
+  h1 #{name}
+  form(method='POST', action='/projects/add')
+    #form-group
+      label Name:
+      input.form-control(name='name', type='text')
+    #form-group
+      label Type:
+      textarea.form-control(name='type')
+    br
+    input.btn.btn-primary(type='submit',value='Submit')

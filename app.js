@@ -26,7 +26,7 @@ const app = express();
 
 // Bring in Models
 let Article = require('./models/article');
-
+let Project = require('./models/project');
 // Load View Engine
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'pug');
@@ -96,11 +96,26 @@ app.get('/', function(req, res){
     }
   });
 });
+// Project Route
+app.get('/projects', function(req, res){
+  Project.find({}, function(err, projects){
+    if(err){
+      console.log(err);
+    } else {
+      res.render('projects', {
+        title:'Projects',
+        projects: projects
+      });
+    }
+  });
+});
 
 // Route Files
 let articles = require('./routes/articles');
+let projects = require('./routes/projects');
 let users = require('./routes/users');
 app.use('/articles', articles);
+app.use('/projects', projects);
 app.use('/users', users);
 
 // Start Server

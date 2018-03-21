@@ -1,0 +1,13 @@
+extends layout
+
+block content
+  h1= project.name
+  h5 Written by #{author}
+  p= project.type
+  hr
+  if user
+    if user.id ==project.author
+      a.btn.btn-default(href='/project/edit/'+project._id) Edit 
+      a.btn.btn-default(href='/project/add-diagramm/'+project._id) Add Diagram 
+      a.btn.btn-danger.delete-project(href='#',data-id=project._id) Delete
+  
